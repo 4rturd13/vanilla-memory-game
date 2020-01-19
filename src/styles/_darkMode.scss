@@ -1,0 +1,70 @@
+/* Dark mode ==> */
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: $light;
+    transition: 0.3 ease all;
+
+    &.dark {
+        background-color: $dark;
+        color: $light;
+        background-repeat: no-repeat;
+        .front-face,
+        .back-face {
+            background: $cardDark;
+        }
+        a {
+            color: $light;
+        }
+    }
+}
+
+.darkMode {
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1;
+}
+
+.switch {
+    margin: 20px 20px;
+    background-color: $dark2;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    display: flex;
+    outline: none;
+    &::after {
+        content: "";
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        background-color: $light;
+        top: 0;
+        left: 0;
+        right: unset;
+        border-radius: 100px;
+        transition: 0.3s ease all;
+        box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 2);
+    }
+    &.active {
+        background-color: $btnBgLight;
+        &::after {
+            right: 0;
+            left: unset;
+        }
+    }
+    span {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        display: flex;
+        justify-content: center;
+        background: none;
+        .darkModeIcon {
+            width: 1.8rem;
+        }
+    }
+}
+/* Dark mode <== */

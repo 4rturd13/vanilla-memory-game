@@ -1,3 +1,100 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+/* Dark mode ==> */
+body {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #f7f7fa;
+  -webkit-transition: 0.3 ease all;
+  transition: 0.3 ease all;
+}
+
+body.dark {
+  background-color: #081b33;
+  color: #f7f7fa;
+  background-repeat: no-repeat;
+}
+
+body.dark .front-face,
+body.dark .back-face {
+  background: #2f4562;
+}
+
+body.dark a {
+  color: #f7f7fa;
+}
+
+.darkMode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  z-index: 1;
+}
+
+.switch {
+  margin: 20px 20px;
+  background-color: #343d5b;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  outline: none;
+}
+
+.switch::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background-color: #f7f7fa;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 100px;
+  -webkit-transition: 0.3s ease all;
+  transition: 0.3s ease all;
+  -webkit-box-shadow: 0px 0px 2px 2px black;
+          box-shadow: 0px 0px 2px 2px black;
+}
+
+.switch.active {
+  background-color: orange;
+}
+
+.switch.active::after {
+  right: 0;
+  left: unset;
+}
+
+.switch span {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: none;
+}
+
+.switch span .darkModeIcon {
+  width: 1.8rem;
+}
+
+/* Dark mode <== */
 * {
   padding: 0;
   margin: 0;
@@ -5,16 +102,6 @@
           box-sizing: border-box;
 }
 
-body {
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background-color: #f1f1f1;
-}
-
-/* Dark mode ==> */
-/* Dark mode <== */
 .memory-game {
   width: 100%;
   height: 640px;
@@ -29,6 +116,7 @@ body {
           justify-content: center;
   -webkit-perspective: 1000px;
           perspective: 1000px;
+  z-index: 1;
 }
 
 .memory-card {
@@ -75,5 +163,45 @@ body {
 .front-face {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 40px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1rem;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #343d5b;
+}
+
+.footer .iconFooter {
+  width: 2rem;
+}
+
+@media screen and (max-width: 480px) {
+  .memory-game {
+    width: 100%;
+    height: 100vh;
+  }
+  .memory-card {
+    height: calc(16% - 10px);
+  }
+  .memory-card .front-face,
+  .memory-card .back-face {
+    width: 50px;
+    height: 100%;
+    padding: 1px;
+  }
 }
 /*# sourceMappingURL=main.css.map */

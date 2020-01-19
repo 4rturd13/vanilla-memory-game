@@ -1,20 +1,11 @@
 @import "./varibales";
+@import "./darkMode";
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-
-body {
-    height: 100vh;
-    display: flex;
-    background-color: #f1f1f1;
-}
-
-/* Dark mode ==> */
-
-/* Dark mode <== */
 
 .memory-game {
     width: 100%;
@@ -24,6 +15,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     perspective: 1000px;
+    z-index: 1;
 }
 
 .memory-card {
@@ -52,10 +44,43 @@ body {
     padding: 20px;
     position: absolute;
     border-radius: 5px;
-    background: #1c7ccc;
+    background: $cardLight;
     backface-visibility: hidden;
 }
 
 .front-face {
     transform: rotateY(180deg);
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+    font-family: "Press Start 2P", cursive;
+    font-size: 1rem;
+    a {
+        text-decoration: none;
+        color: $dark2;
+    }
+    .iconFooter {
+        width: 2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .memory-game {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .memory-card {
+        height: calc(16% - 10px);
+        .front-face,
+        .back-face {
+            width: 50px;
+            height: 100%;
+            padding: 1px;
+        }
+    }
 }
